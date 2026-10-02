@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio Template</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        // Custom Brand Palette
+                        'brand-dark': '#1A1A1A',
+                        'brand-gray': '#4A5568',
+                        'brand-light': '#F9FAFB',
+                        // Pastel Pink Accents
+                        'pastel-pink': {
+                            light: '#F8C8DC',
+                            DEFAULT: '#E882A6', // Rich primary pink for sufficient contrast with white text
+                            dark: '#D76991',
+                        },
+                        // Pastel Purple Accents
+                        'pastel-purple': {
+                            light: '#C3B1E1',
+                            subtle: '#F3EFEF',
+                            DEFAULT: '#8A70D6', // Rich primary purple for WCAG text contrast with white text
+                            dark: '#7459C2',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom rules to guarantee high quality design & accessibility */
+        body {
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Mandatory accent text rules: WHITE text on Pink/Purple badges & buttons */
+        .badge-pink, .btn-pink {
+            background-color: #E882A6 !important;
+            color: #FFFFFF !important;
+        }
+        .btn-pink:hover {
+            background-color: #D76991 !important;
+            color: #FFFFFF !important;
+        }
+
+        .badge-purple, .btn-purple {
+            background-color: #8A70D6 !important;
+            color: #FFFFFF !important;
+        }
+        .btn-purple:hover {
+            background-color: #7459C2 !important;
+            color: #FFFFFF !important;
+        }
+
+        /* Active filter state */
+        .filter-btn.active-pink {
+            background-color: #E882A6 !important;
+            color: #FFFFFF !important;
+            border-color: #E882A6 !important;
+        }
+        .filter-btn.active-purple {
+            background-color: #8A70D6 !important;
+            color: #FFFFFF !important;
+            border-color: #8A70D6 !important;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F1F1F1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C3B1E1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E882A6;
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-dark min-h-screen flex flex-col justify-between antialiased selection:bg-pastel-pink-light selection:text-brand-dark">
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Placeholder -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pastel-purple to-pastel-pink flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:scale-105 transition-transform duration-200">
+                        <!-- Placeholder Initials -->
+                        JD
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg tracking-tight text-brand-dark group-hover:text-pastel-purple transition-colors">
+                            [JANE DOE]
+                        </span>
+                        <span class="text-xs text-gray-500 font-medium tracking-wider uppercase">
+                            [Professional Title Placeholder]
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#personal-statement" class="text-sm font-semibold text-gray-700 hover:text-pastel-purple transition-colors py-2 border-b-2 border-transparent hover:border-pastel-purple">
+                        Personal Statement
+                    </a>
+                    <a href="#skills" class="text-sm font-semibold text-gray-700 hover:text-pastel-pink transition-colors py-2 border-b-2 border-transparent hover:border-pastel-pink">
+                        Skills
+                    </a>
+                    <a href="#projects-files" class="text-sm font-semibold text-gray-700 hover:text-pastel-purple transition-colors py-2 border-b-2 border-transparent hover:border-pastel-purple">
+                        Projects & Files
+                    </a>
+                </nav>
+
+                <!-- Navigation CTA Button (Pastel Purple bg with WHITE text) -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="showToast('Contact section clicked! Replace with your mailto: link or contact form.')" 
+                            class="btn-purple font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4 text-white"></i>
+                        <span>[Get in Touch]</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-600 hover:text-brand-dark hover:bg-gray-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-gray-100 bg-white px-4 pt-2 pb-6 space-y-3">
+            <a href="#personal-statement" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-pastel-purple">
+                Personal Statement
+            </a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-pastel-pink">
+                Skills
+            </a>
+            <a href="#projects-files" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-pastel-purple">
+                Projects & Files
+            </a>
+            <div class="pt-2 border-t border-gray-100">
+                <button onclick="showToast('Contact feature placeholder.')" class="w-full btn-purple font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm text-center flex items-center justify-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4 text-white"></i>
+                    <span>[Get in Touch]</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+
+        <!-- SECTION 1: PERSONAL STATEMENT -->
+        <section id="personal-statement" class="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-pink-50/20 to-white">
+            
+            <!-- Subtle Background Accent Blobs -->
+            <div class="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 pointer-events-none overflow-hidden opacity-30">
+                <div class="absolute -top-10 -left-10 w-72 h-72 rounded-full bg-pastel-pink-light blur-3xl"></div>
+                <div class="absolute top-20 right-0 w-80 h-80 rounded-full bg-pastel-purple-light blur-3xl"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Narrative / Bio Column -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Accent Tag -->
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-purple text-xs font-semibold tracking-wide uppercase shadow-sm">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-white"></i>
+                            <span>[Personal Statement]</span>
+                        </div>
+
+                        <!-- Main Headline Placeholder -->
+                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-tight">
+                            [Insert Headline Here: e.g. "Architecting Digital Experiences with Passion & Precision."]
+                        </h1>
+
+                        <!-- Subtitle Placeholder -->
+                        <p class="text-lg md:text-xl font-medium text-pastel-purple-dark">
+                            [Insert Subtitle / Professional Pitch Placeholder: Senior Full-Stack Developer & UX Designer dedicated to crafting accessible, scalable, and beautifully engineered web solutions.]
+                        </p>
+
+                        <!-- Main Narrative Bio Placeholder -->
+                        <div class="prose prose-gray max-w-none text-gray-600 text-base leading-relaxed space-y-4">
+                            <p>
+                                [Placeholder Narrative Paragraph 1: Welcome to my portfolio template! Insert a narrative outlining your career story, core expertise, and what drives your work. Explain your philosophy on problem-solving, collaboration, and continuous growth.]
+                            </p>
+                            <p>
+                                [Placeholder Narrative Paragraph 2: Mention key milestones, certifications, or notable environments you've worked in (e.g. cross-functional agile teams, high-growth startups, or enterprise organizations). Express your enthusiasm for tackling complex challenges.]
+                            </p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="pt-4 flex flex-wrap items-center gap-4">
+                            <a href="#projects-files" class="btn-purple font-semibold text-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                                <span>[Explore Projects]</span>
+                                <i data-lucide="arrow-down-right" class="w-4 h-4 text-white"></i>
+                            </a>
+
+                            <button onclick="triggerFileDownload('[Your_Resume_Name.pdf]')" class="btn-pink font-semibold text-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                                <i data-lucide="file-text" class="w-4 h-4 text-white"></i>
+                                <span>[Download Resume]</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Highlight Cards Column -->
+                    <div class="lg:col-span-5 space-y-5">
+                        
+                        <!-- Highlight Card 1 -->
+                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="w-10 h-10 rounded-lg badge-pink flex items-center justify-center shadow-xs">
+                                    <i data-lucide="briefcase" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="badge-pink text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    [Highlight #1]
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-brand-dark mb-1">
+                                [Years of Experience / Milestone]
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                [Placeholder detail: e.g. 5+ Years delivering production-grade web applications and leading design implementations.]
+                            </p>
+                        </div>
+
+                        <!-- Highlight Card 2 -->
+                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="w-10 h-10 rounded-lg badge-purple flex items-center justify-center shadow-xs">
+                                    <i data-lucide="target" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="badge-purple text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    [Highlight #2]
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-brand-dark mb-1">
+                                [Key Focus Areas]
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                [Placeholder detail: e.g. Responsive Web Architecture, UX Systems, RESTful APIs, and Performance Optimization.]
+                            </p>
+                        </div>
+
+                        <!-- Highlight Card 3 -->
+                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="w-10 h-10 rounded-lg badge-pink flex items-center justify-center shadow-xs">
+                                    <i data-lucide="heart" class="w-5 h-5 text-white"></i>
+                                </div>
+                                <span class="badge-pink text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    [Highlight #3]
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-bold text-brand-dark mb-1">
+                                [Core Philosophy / Values]
+                            </h3>
+                            <p class="text-sm text-gray-600">
+                                [Placeholder detail: e.g. Accessibility-first design, clean maintainable code, and user-centric problem solving.]
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: SKILLS -->
+        <section id="skills" class="py-16 md:py-24 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Title Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pink text-xs font-semibold tracking-wide uppercase shadow-sm mb-3">
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-white"></i>
+                        <span>[Core Competencies]</span>
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
+                        [Skills & Expertise]
+                    </h2>
+                    <p class="mt-3 text-base text-gray-600">
+                        [Filterable skill matrix showcase. Click the category tabs below to filter skill badges.]
+                    </p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+                    <button onclick="filterSkills('all', this)" class="filter-btn active-purple px-5 py-2 rounded-full text-sm font-semibold border border-transparent transition-all shadow-xs">
+                        All Skills
+                    </button>
+                    <button onclick="filterSkills('technical', this)" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-pastel-purple transition-all shadow-xs">
+                        Technical & Coding
+                    </button>
+                    <button onclick="filterSkills('design', this)" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-pastel-pink transition-all shadow-xs">
+                        Design & Tools
+                    </button>
+                    <button onclick="filterSkills('soft', this)" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-pastel-purple transition-all shadow-xs">
+                        Professional / Soft Skills
+                    </button>
+                </div>
+
+                <!-- Skill Badges Grid -->
+                <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    
+                    <!-- Skill Item 1 (Technical) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="technical">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="code" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[JavaScript / ES6+]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Technical]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 2 (Technical) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="technical">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="layers" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[React / Next.js]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Technical]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 3 (Technical) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="technical">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="file-code-2" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[HTML5 & CSS3]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Technical]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 4 (Technical) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="technical">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="database" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Node.js / REST APIs]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Technical]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 5 (Design) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
+                            <i data-lucide="figma" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Figma / UI Design]</span>
+                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Design]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 6 (Design) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
+                            <i data-lucide="palette" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Tailwind CSS]</span>
+                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Design]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 7 (Design) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
+                            <i data-lucide="layout" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Wireframing]</span>
+                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Design]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 8 (Design) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
+                            <i data-lucide="eye" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Accessibility (a11y)]</span>
+                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Design]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 9 (Soft Skills) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="soft">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="users" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Team Leadership]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Soft Skills]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 10 (Soft Skills) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="soft">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="message-square" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Agile & Scrum]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Soft Skills]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 11 (Soft Skills) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="soft">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="lightbulb" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Problem Solving]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Soft Skills]
+                        </span>
+                    </div>
+
+                    <!-- Skill Item 12 (Soft Skills) -->
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="soft">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
+                            <i data-lucide="clock" class="w-4 h-4 text-white"></i>
+                        </div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">[Time Management]</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                            [Soft Skills]
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: PROJECTS AND FILES -->
+        <section id="projects-files" class="py-16 md:py-24 bg-gray-50/50 border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Title Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-purple text-xs font-semibold tracking-wide uppercase shadow-sm mb-3">
+                        <i data-lucide="folder-git-2" class="w-3.5 h-3.5 text-white"></i>
+                        <span>[Portfolio & Resources]</span>
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl">
+                        [Projects & Downloadable Files]
+                    </h2>
+                    <p class="mt-3 text-base text-gray-600">
+                        [Explore key portfolio project highlights along with downloadable resume files and project documentation.]
+                    </p>
+                </div>
+
+                <!-- SUB-SECTION A: PROJECTS GRID -->
+                <div class="mb-20">
+                    <div class="flex items-center justify-between mb-8 pb-3 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-brand-dark flex items-center gap-2">
+                            <i data-lucide="layout-grid" class="w-5 h-5 text-pastel-purple"></i>
+                            <span>[Featured Projects]</span>
+                        </h3>
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                            3 Projects Available
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Project Card 1 -->
+                        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+                            <!-- Image Placeholder -->
+                            <div class="relative bg-gray-100 h-48 overflow-hidden group">
+                                <img src="https://placehold.co/600x400/C3B1E1/FFFFFF?text=Project+1+Preview" alt="Project 1 Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/C3B1E1/FFFFFF?text=Project+Preview'">
+                                <div class="absolute top-3 right-3">
+                                    <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                                        [Featured]
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Card Body -->
+                            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-brand-dark mb-2">
+                                        [Project Title 1 Placeholder]
+                                    </h4>
+                                    <p class="text-sm text-gray-600 line-clamp-3">
+                                        [Brief 2-3 sentence summary placeholder describing the project scope, problem solved, and key technical outcomes achieved.]
+                                    </p>
+                                </div>
+
+                                <!-- Tags (White text on purple accent) -->
+                                <div class="flex flex-wrap gap-1.5 pt-2">
+                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">React</span>
+                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Tailwind</span>
+                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="pt-4 flex items-center justify-between gap-3 border-t border-gray-100">
+                                    <button onclick="openModal('Project Title 1 Placeholder', 'Project Details', 'Full detailed breakdown of Project 1. Includes technical architecture, user research findings, and measurable results.', ['React', 'Tailwind CSS', 'Node.js', 'REST API'], 'https://example.com')" 
+                                            class="btn-purple text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                                        <i data-lucide="info" class="w-3.5 h-3.5 text-white"></i>
+                                        <span>[Details]</span>
+                                    </button>
+
+                                    <button onclick="showToast('Opening Live Demo Link...')" class="btn-pink text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-white"></i>
+                                        <span>[Live Demo]</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Card 2 -->
+                        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+                            <!-- Image Placeholder -->
+                            <div class="relative bg-gray-100 h-48 overflow-hidden group">
+                                <img src="https://placehold.co/600x400/F8C8DC/1A1A1A?text=Project+2+Preview" alt="Project 2 Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/F8C8DC/1A1A1A?text=Project+Preview'">
+                                <div class="absolute top-3 right-3">
+                                    <span class="badge-purple text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                                        [Design System]
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Card Body -->
+                            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-brand-dark mb-2">
+                                        [Project Title 2 Placeholder]
+                                    </h4>
+                                    <p class="text-sm text-gray-600 line-clamp-3">
+                                        [Brief 2-3 sentence summary placeholder describing the project scope, problem solved, and key technical outcomes achieved.]
+                                    </p>
+                                </div>
+
+                                <!-- Tags (White text on pink accent) -->
+                                <div class="flex flex-wrap gap-1.5 pt-2">
+                                    <span class="badge-pink text-[11px] font-medium px-2.5 py-0.5 rounded-full">Figma</span>
+                                    <span class="badge-pink text-[11px] font-medium px-2.5 py-0.5 rounded-full">UI/UX</span>
+                                    <span class="badge-pink text-[11px] font-medium px-2.5 py-0.5 rounded-full">Prototyping</span>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="pt-4 flex items-center justify-between gap-3 border-t border-gray-100">
+                                    <button onclick="openModal('Project Title 2 Placeholder', 'Design Showcase', 'Comprehensive UI/UX design case study covering user personas, wireframes, component libraries, and interactive Figma prototypes.', ['Figma', 'UI Design', 'Design Tokens', 'User Testing'], 'https://example.com')" 
+                                            class="btn-purple text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                                        <i data-lucide="info" class="w-3.5 h-3.5 text-white"></i>
+                                        <span>[Details]</span>
+                                    </button>
+
+                                    <button onclick="showToast('Opening Prototype Link...')" class="btn-pink text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-white"></i>
+                                        <span>[Prototype]</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Card 3 -->
+                        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+                            <!-- Image Placeholder -->
+                            <div class="relative bg-gray-100 h-48 overflow-hidden group">
+                                <img src="https://placehold.co/600x400/907AD6/FFFFFF?text=Project+3+Preview" alt="Project 3 Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/907AD6/FFFFFF?text=Project+Preview'">
+                                <div class="absolute top-3 right-3">
+                                    <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                                        [Full Stack]
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Card Body -->
+                            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-brand-dark mb-2">
+                                        [Project Title 3 Placeholder]
+                                    </h4>
+                                    <p class="text-sm text-gray-600 line-clamp-3">
+                                        [Brief 2-3 sentence summary placeholder describing the project scope, problem solved, and key technical outcomes achieved.]
+                                    </p>
+                                </div>
+
+                                <!-- Tags (White text on purple accent) -->
+                                <div class="flex flex-wrap gap-1.5 pt-2">
+                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">FastAPI</span>
+                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">PostgreSQL</span>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="pt-4 flex items-center justify-between gap-3 border-t border-gray-100">
+                                    <button onclick="openModal('Project Title 3 Placeholder', 'Backend Systems', 'Overview of full-stack API architecture, database schema design, automated testing pipelines, and cloud deployment.', ['Python', 'FastAPI', 'PostgreSQL', 'Docker'], 'https://example.com')" 
+                                            class="btn-purple text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                                        <i data-lucide="info" class="w-3.5 h-3.5 text-white"></i>
+                                        <span>[Details]</span>
+                                    </button>
+
+                                    <button onclick="showToast('Opening GitHub Repository...')" class="btn-pink text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
+                                        <i data-lucide="github" class="w-3.5 h-3.5 text-white"></i>
+                                        <span>[Code Repo]</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SUB-SECTION B: DOWNLOADABLE FILES AND DOCUMENTS -->
+                <div>
+                    <div class="flex items-center justify-between mb-8 pb-3 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-brand-dark flex items-center gap-2">
+                            <i data-lucide="file-check" class="w-5 h-5 text-pastel-pink"></i>
+                            <span>[Files & Downloadable Documents]</span>
+                        </h3>
+                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                            3 Files Available
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- File Card 1 -->
+                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-xl badge-purple flex items-center justify-center shrink-0">
+                                    <i data-lucide="file-text" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark text-base">
+                                        [Official Resume / CV]
+                                    </h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">PDF • 1.2 MB</p>
+                                    <p class="text-xs text-gray-600 mt-2">
+                                        [Updated full professional resume with complete employment timeline.]
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+                                <button onclick="openModal('Official Resume / CV', 'Document File', 'Preview file contents placeholder. Replace with an embed viewer or link to your PDF file.', ['PDF Document', 'Curriculum Vitae'], '#')" 
+                                        class="w-1/2 border border-gray-200 text-gray-700 hover:border-pastel-purple hover:text-pastel-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+                                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                                    <span>Preview</span>
+                                </button>
+                                <button onclick="triggerFileDownload('[Jane_Doe_Resume_2026.pdf]')" 
+                                        class="w-1/2 btn-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+                                    <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
+                                    <span>Download</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- File Card 2 -->
+                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-xl badge-pink flex items-center justify-center shrink-0">
+                                    <i data-lucide="presentation" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark text-base">
+                                        [Portfolio Deck PDF]
+                                    </h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">PDF • 4.5 MB</p>
+                                    <p class="text-xs text-gray-600 mt-2">
+                                        [Executive presentation deck highlighting key case studies and methodology.]
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+                                <button onclick="openModal('Portfolio Deck PDF', 'Presentation File', 'Preview file contents placeholder. Download full slides deck for high-res graphics.', ['Presentation Deck', 'PDF'], '#')" 
+                                        class="w-1/2 border border-gray-200 text-gray-700 hover:border-pastel-pink hover:text-pastel-pink text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+                                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                                    <span>Preview</span>
+                                </button>
+                                <button onclick="triggerFileDownload('[Jane_Doe_Portfolio_Deck.pdf]')" 
+                                        class="w-1/2 btn-pink text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+                                    <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
+                                    <span>Download</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- File Card 3 -->
+                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-12 h-12 rounded-xl badge-purple flex items-center justify-center shrink-0">
+                                    <i data-lucide="archive" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-brand-dark text-base">
+                                        [Design Assets Pack]
+                                    </h4>
+                                    <p class="text-xs text-gray-500 mt-0.5">ZIP • 12.0 MB</p>
+                                    <p class="text-xs text-gray-600 mt-2">
+                                        [Bundled UI icon library and Figma design tokens template file.]
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
+                                <button onclick="openModal('Design Assets Pack', 'ZIP Archive', 'Includes vector SVG icons, color tokens, typography scales, and UI component specifications.', ['ZIP File', 'Design System'], '#')" 
+                                        class="w-1/2 border border-gray-200 text-gray-700 hover:border-pastel-purple hover:text-pastel-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+                                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                                    <span>Preview</span>
+                                </button>
+                                <button onclick="triggerFileDownload('[Design_Assets_Pack.zip]')" 
+                                        class="w-1/2 btn-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
+                                    <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
+                                    <span>Download</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Interactive Modal Container -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 transform transition-transform duration-300 scale-95 opacity-0" id="modal-card">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-gray-100">
+                <div>
+                    <span id="modal-category" class="badge-purple text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                        Category
+                    </span>
+                    <h3 id="modal-title" class="text-xl font-bold text-brand-dark mt-1">
+                        Modal Title Placeholder
+                    </h3>
+                </div>
+                <button onclick="closeModal()" class="p-1 rounded-lg text-gray-400 hover:text-brand-dark hover:bg-gray-100 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div class="py-4 space-y-4">
+                <p id="modal-description" class="text-sm text-gray-600 leading-relaxed">
+                    Detailed description placeholder text...
+                </p>
+
+                <div>
+                    <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Technologies / Tags:</h5>
+                    <div id="modal-tags" class="flex flex-wrap gap-1.5">
+                        <!-- Dynamic Tags Inserted Here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-3">
+                <button onclick="closeModal()" class="px-4 py-2 rounded-lg border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-colors">
+                    Close
+                </button>
+                <button onclick="showToast('Action confirmed from preview modal!'); closeModal();" class="btn-purple px-5 py-2 rounded-lg text-sm font-semibold transition-all">
+                    Confirm Action
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-100">
+                
+                <!-- Brand Column -->
+                <div class="md:col-span-2 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg badge-purple flex items-center justify-center font-bold text-sm">
+                            JD
+                        </div>
+                        <span class="font-bold text-lg text-brand-dark">[JANE DOE]</span>
+                    </div>
+                    <p class="text-xs text-gray-500 max-w-sm leading-relaxed">
+                        [Footer placeholder statement. Professional portfolio template featuring clean white base styling with crisp pastel pink and pastel purple white-text accents.]
+                    </p>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div>
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-dark mb-3">Navigation</h5>
+                    <ul class="space-y-2 text-xs text-gray-600">
+                        <li><a href="#personal-statement" class="hover:text-pastel-purple transition-colors">Personal Statement</a></li>
+                        <li><a href="#skills" class="hover:text-pastel-pink transition-colors">Skills & Matrix</a></li>
+                        <li><a href="#projects-files" class="hover:text-pastel-purple transition-colors">Projects & Downloads</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Links Placeholder -->
+                <div>
+                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-dark mb-3">Connect</h5>
+                    <div class="flex items-center gap-3">
+                        <a href="javascript:void(0)" onclick="showToast('LinkedIn profile link placeholder.')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-purple-100 hover:text-pastel-purple flex items-center justify-center text-gray-600 transition-colors">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </a>
+                        <a href="javascript:void(0)" onclick="showToast('GitHub profile link placeholder.')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-pink-100 hover:text-pastel-pink flex items-center justify-center text-gray-600 transition-colors">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                        </a>
+                        <a href="javascript:void(0)" onclick="showToast('Twitter / X link placeholder.')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-purple-100 hover:text-pastel-purple flex items-center justify-center text-gray-600 transition-colors">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                        <a href="javascript:void(0)" onclick="showToast('Email link placeholder.')" class="w-8 h-8 rounded-full bg-gray-100 hover:bg-pink-100 hover:text-pastel-pink flex items-center justify-center text-gray-600 transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>© 2026 [Your Name / Placeholder]. All rights reserved.</p>
+                
+                <!-- Back to Top Smooth Scroll Button -->
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="flex items-center gap-1.5 text-gray-600 hover:text-pastel-purple font-semibold transition-colors">
+                    <span>Back to top</span>
+                    <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Skill Matrix Interactive Filter
+        function filterSkills(category, btnElement) {
+            // Update active button state
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.className = 'filter-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-pastel-purple transition-all shadow-xs';
+            });
+
+            if (category === 'design') {
+                btnElement.className = 'filter-btn active-pink px-5 py-2 rounded-full text-sm font-semibold border border-transparent transition-all shadow-xs';
+            } else {
+                btnElement.className = 'filter-btn active-purple px-5 py-2 rounded-full text-sm font-semibold border border-transparent transition-all shadow-xs';
+            }
+
+            // Filter items
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Preview Functions
+        const modal = document.getElementById('project-modal');
+        const modalCard = document.getElementById('modal-card');
+
+        function openModal(title, category, description, tags = [], link = '#') {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-category').textContent = category;
+            document.getElementById('modal-description').textContent = description;
+
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = '';
+            tags.forEach(tag => {
+                const tagSpan = document.createElement('span');
+                tagSpan.className = 'badge-purple text-xs font-medium px-2.5 py-0.5 rounded-full';
+                tagSpan.textContent = tag;
+                tagsContainer.appendChild(tagSpan);
+            });
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalCard.classList.remove('scale-95', 'opacity-0');
+                modalCard.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalCard.classList.remove('scale-100', 'opacity-100');
+            modalCard.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Toast Notification System
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            toast.className = 'pointer-events-auto bg-brand-dark text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 transform transition-all duration-300 translate-y-5 opacity-0 border border-gray-700';
+            toast.innerHTML = `
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-pastel-pink shrink-0"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-5', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-5', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // File Download Handler simulation
+        function triggerFileDownload(filename) {
+            showToast(`Downloading file: ${filename}`);
+        }
+    </script>
+</body>
+</html>
