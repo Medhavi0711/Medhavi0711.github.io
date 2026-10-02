@@ -69,15 +69,9 @@
             color: #FFFFFF !important;
         }
 
-        .filter-btn.active-pink {
-            background-color: #E882A6 !important;
-            color: #FFFFFF !important;
-            border-color: #E882A6 !important;
-        }
-        .filter-btn.active-purple {
+        .active-purple {
             background-color: #8A70D6 !important;
             color: #FFFFFF !important;
-            border-color: #8A70D6 !important;
         }
 
         .editable-active [contenteditable="true"] {
@@ -123,12 +117,12 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <button id="toggle-edit-btn" onclick="toggleLiveEditMode()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-semibold transition-all flex items-center gap-1.5 border border-gray-700">
+                <button type="button" id="toggle-edit-btn" onclick="toggleLiveEditMode()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-semibold transition-all flex items-center gap-1.5 border border-gray-700">
                     <i data-lucide="edit-3" class="w-3.5 h-3.5 text-pastel-pink"></i>
                     <span id="edit-btn-text">Enable Live Edit</span>
                 </button>
 
-                <button onclick="exportUpdatedHTML()" class="px-3 py-1.5 rounded-lg btn-pink font-semibold transition-all flex items-center gap-1.5 shadow-sm">
+                <button type="button" onclick="exportUpdatedHTML()" class="px-3 py-1.5 rounded-lg btn-pink font-semibold transition-all flex items-center gap-1.5 shadow-sm">
                     <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
                     <span>Export HTML</span>
                 </button>
@@ -180,7 +174,7 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-600 hover:text-brand-dark hover:bg-gray-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+                    <button type="button" id="mobile-menu-btn" class="p-2 rounded-lg text-gray-600 hover:text-brand-dark hover:bg-gray-100 focus:outline-none" aria-label="Toggle Navigation Menu">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -272,12 +266,12 @@
                         <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="w-10 h-10 rounded-lg badge-pink flex items-center justify-center shadow-xs">
-                                    <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+                                    <i data-lucide="user" class="w-5 h-5 text-white"></i>
                                 </div>
-                                <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Personal</span>
+                                <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">ABOUT</span>
                             </div>
                             <h3 class="text-2xl font-extrabold text-brand-dark mb-1" data-editable="true">Learn More About Me</h3>
-                            <p class="text-sm text-gray-600" data-editable="true">My interests include Formula 1, fashion, figure skating, and pop culture. I am on Rutger's Figure Skatin Compeititon Team as well! </p>
+                            <p class="text-sm text-gray-600" data-editable="true">My interests include Formula 1, fashion, figure skating, and pop culture. I am on Rutgers' Figure Skating Competition Team as well!</p>
                         </div>
                     </div>
 
@@ -285,116 +279,116 @@
             </div>
         </section>
 
-<!-- SECTION 2: SKILLS & COMPETENCIES -->
-<section id="skills" class="py-16 md:py-24 bg-white border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-10">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pink text-xs font-semibold tracking-wide uppercase shadow-sm mb-3">
-                <i data-lucide="cpu" class="w-3.5 h-3.5 text-white"></i>
-                <span data-editable="true">Core Competencies</span>
-            </div>
-            <h2 class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl" data-editable="true">
-                Skills & Qualifications
-            </h2>
-        </div>
-
-        <!-- Filter Category Buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10">
-            <button onclick="filterSkills('all', this)" class="skill-filter-btn active-purple px-5 py-2 rounded-full text-xs font-bold transition-all shadow-xs">
-                All
-            </button>
-            <button onclick="filterSkills('technical', this)" class="skill-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
-                Technical Skills
-            </button>
-            <button onclick="filterSkills('financial', this)" class="skill-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
-                Financial Skills
-            </button>
-            <button onclick="filterSkills('languages', this)" class="skill-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
-                Languages
-            </button>
-        </div>
-
-        <!-- Skills Grid -->
-        <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            
-            <!-- Technical Skills -->
-            <div class="skill-card technical p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
-                    <i data-lucide="database" class="w-5 h-5 text-white"></i>
+        <!-- SECTION 2: SKILLS SECTION -->
+        <section id="skills" class="py-16 md:py-24 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-10">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pink text-xs font-semibold tracking-wide uppercase shadow-sm mb-3">
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-white"></i>
+                        <span data-editable="true">Core Competencies</span>
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl" data-editable="true">
+                        Skills & Qualifications
+                    </h2>
                 </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">SAP ERP System</span>
-                <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Finance Tech</span>
-            </div>
 
-            <div class="skill-card technical p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
-                    <i data-lucide="file-spreadsheet" class="w-5 h-5 text-white"></i>
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10">
+                    <button type="button" onclick="filterSkills('all', this)" class="skill-filter-btn active-purple px-5 py-2 rounded-full text-xs font-bold transition-all shadow-xs">
+                        All
+                    </button>
+                    <button type="button" onclick="filterSkills('technical', this)" class="skill-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
+                        Technical Skills
+                    </button>
+                    <button type="button" onclick="filterSkills('financial', this)" class="skill-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
+                        Financial Skills
+                    </button>
+                    <button type="button" onclick="filterSkills('languages', this)" class="skill-filter-btn px-5 py-2 rounded-full text-xs font-bold bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all">
+                        Languages
+                    </button>
                 </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Advanced Excel</span>
-                <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Analytics</span>
-            </div>
 
-            <div class="skill-card technical p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
-                    <i data-lucide="pie-chart" class="w-5 h-5 text-white"></i>
+                <!-- Skills Grid -->
+                <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    
+                    <!-- Technical Skills -->
+                    <div class="skill-card technical p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
+                            <i data-lucide="database" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">SAP ERP System</span>
+                        <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Finance Tech</span>
+                    </div>
+
+                    <div class="skill-card technical p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
+                            <i data-lucide="file-spreadsheet" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Advanced Excel</span>
+                        <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Analytics</span>
+                    </div>
+
+                    <div class="skill-card technical p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
+                            <i data-lucide="pie-chart" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Power BI</span>
+                        <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Microsoft 365</span>
+                    </div>
+
+                    <!-- Financial Skills -->
+                    <div class="skill-card financial p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-pink flex items-center justify-center shadow-xs">
+                            <i data-lucide="file-check" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Financial Statement Analysis</span>
+                        <span class="badge-pink text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Financial Reporting</span>
+                    </div>
+
+                    <div class="skill-card financial p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-pink flex items-center justify-center shadow-xs">
+                            <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Intermediate Accounting</span>
+                        <span class="badge-pink text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Accounting</span>
+                    </div>
+
+                    <div class="skill-card financial p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-pink flex items-center justify-center shadow-xs">
+                            <i data-lucide="globe" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Financial Management</span>
+                        <span class="badge-pink text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Corporate Finance</span>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="skill-card languages p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
+                            <i data-lucide="languages" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">English</span>
+                        <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Native</span>
+                    </div>
+
+                    <div class="skill-card languages p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
+                            <i data-lucide="languages" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">French</span>
+                        <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Intermediate</span>
+                    </div>
+
+                    <div class="skill-card languages p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
+                        <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
+                            <i data-lucide="languages" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Hindi</span>
+                        <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Native</span>
+                    </div>
+
                 </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Power BI</span>
-                <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Microsoft 365</span>
             </div>
-
-            <!-- Financial Skills -->
-            <div class="skill-card financial p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-pink flex items-center justify-center shadow-xs">
-                    <i data-lucide="file-check" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Financial Statement Analysis</span>
-                <span class="badge-pink text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Financial Reporting</span>
-            </div>
-
-            <div class="skill-card financial p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-pink flex items-center justify-center shadow-xs">
-                    <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Intermediate Accounting</span>
-                <span class="badge-pink text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Accounting</span>
-            </div>
-
-            <div class="skill-card financial p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-pink flex items-center justify-center shadow-xs">
-                    <i data-lucide="globe" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Financial Management</span>
-                <span class="badge-pink text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Corporate Finance</span>
-            </div>
-
-            <!-- Languages -->
-            <div class="skill-card languages p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
-                    <i data-lucide="languages" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">English</span>
-                <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Native</span>
-            </div>
-
-            <div class="skill-card languages p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
-                    <i data-lucide="languages" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">French</span>
-                <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Intermediate</span>
-            </div>
-
-            <div class="skill-card languages p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center shadow-xs hover:shadow-md transition-all">
-                <div class="w-10 h-10 mb-3 rounded-xl badge-purple flex items-center justify-center shadow-xs">
-                    <i data-lucide="languages" class="w-5 h-5 text-white"></i>
-                </div>
-                <span class="font-bold text-base text-brand-dark mb-1" data-editable="true">Hindi</span>
-                <span class="badge-purple text-xs font-semibold px-3 py-0.5 rounded-full" data-editable="true">Native</span>
-            </div>
-
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- SECTION 3: PROJECTS SECTION -->
         <section id="projects" class="py-16 md:py-24 bg-white border-t border-gray-100">
@@ -441,7 +435,8 @@
 
                             <!-- Summary -->
                             <p class="text-sm text-gray-600 leading-relaxed" data-editable="true">
-For my investment analysis class, we needed to do an anlysis on any publicly traded company and I decided to research on LVMH Moet Hennessy Louis Vuitton SE. In this project, I did a full analysis on financial statements, created a DCF Valuation, and calcukated the BETA for market research.                            </p>
+                                For my investment analysis class, we needed to do an analysis on any publicly traded company and I decided to research on LVMH Moët Hennessy Louis Vuitton SE. In this project, I did a full analysis on financial statements, created a DCF Valuation, and calculated the BETA for market research.
+                            </p>
                         </div>
                     </div>
 
@@ -458,10 +453,12 @@ For my investment analysis class, we needed to do an anlysis on any publicly tra
                             </div>
                             
                             <h3 class="text-xl font-bold text-brand-dark mb-2 group-hover:text-pastel-pink transition-colors" data-editable="true">
-Ethical Sourcing and Auditing in the Real World                            </h3>
+                                Ethical Sourcing and Auditing in the Real World
+                            </h3>
                             
                             <p class="text-sm text-gray-600 leading-relaxed mb-6" data-editable="true">
-For my supply chain gorup, my team and I needed to learn about ethical sourcing and find real life examples as to how companies did not follow rules or how they followed and provided a strong example on implementing sourcing programs.                            </p>
+                                For my supply chain group, my team and I needed to learn about ethical sourcing and find real life examples as to how companies did not follow rules or how they followed and provided a strong example on implementing sourcing programs.
+                            </p>
 
                         </div>
 
@@ -485,9 +482,31 @@ For my supply chain gorup, my team and I needed to learn about ethical sourcing 
     </footer>
 
     <script>
-        lucide.createIcons();
+        // Safely declare global function on window so standard clicks work in all contexts
+        window.filterSkills = function(category, btn) {
+            const cards = document.querySelectorAll('.skill-card');
+            const filterBtns = document.querySelectorAll('.skill-filter-btn');
 
-        function toggleLiveEditMode() {
+            filterBtns.forEach(b => {
+                b.classList.remove('active-purple');
+                b.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+            });
+
+            btn.classList.add('active-purple');
+            btn.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                    card.style.display = '';
+                } else {
+                    card.classList.add('hidden');
+                    card.style.display = 'none';
+                }
+            });
+        };
+
+        window.toggleLiveEditMode = function() {
             const body = document.getElementById('page-body');
             const btnText = document.getElementById('edit-btn-text');
             const editables = document.querySelectorAll('[data-editable="true"]');
@@ -499,10 +518,12 @@ For my supply chain gorup, my team and I needed to learn about ethical sourcing 
                 el.contentEditable = isActive ? "true" : "false";
             });
 
-            btnText.innerText = isActive ? "Disable Live Edit" : "Enable Live Edit";
-        }
+            if (btnText) {
+                btnText.innerText = isActive ? "Disable Live Edit" : "Enable Live Edit";
+            }
+        };
 
-        function exportUpdatedHTML() {
+        window.exportUpdatedHTML = function() {
             const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
             const blob = new Blob([htmlContent], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
@@ -511,7 +532,18 @@ For my supply chain gorup, my team and I needed to learn about ethical sourcing 
             a.download = 'Medhavi_Vyas_Portfolio.html';
             a.click();
             URL.revokeObjectURL(url);
-        }
+        };
+
+        // Render Lucide icons safely on load
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            } catch (err) {
+                console.warn('Lucide icon rendering skipped:', err);
+            }
+        });
     </script>
 </body>
 </html>
