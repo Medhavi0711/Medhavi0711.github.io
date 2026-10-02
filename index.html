@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medhavi Vyas | Accounting Intern at Withum, Finance and Accounting at Rutgers Business School</title>
+    <title>Medhavi Vyas | Finance & Accounting Student at Rutgers Business School</title>
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,17 +27,15 @@
                         'brand-dark': '#1A1A1A',
                         'brand-gray': '#4A5568',
                         'brand-light': '#FAFAFA',
-                        // Pastel Pink Accents
                         'pastel-pink': {
                             light: '#F8C8DC',
-                            DEFAULT: '#E882A6', // Primary pink for white text contrast
+                            DEFAULT: '#E882A6',
                             dark: '#D76991',
                         },
-                        // Pastel Purple Accents
                         'pastel-purple': {
                             light: '#C3B1E1',
                             subtle: '#F4F0FB',
-                            DEFAULT: '#8A70D6', // Primary purple for white text contrast
+                            DEFAULT: '#8A70D6',
                             dark: '#7459C2',
                         }
                     }
@@ -53,7 +51,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* Mandatory rule: WHITE text on Pink/Purple badges & buttons */
         .badge-pink, .btn-pink {
             background-color: #E882A6 !important;
             color: #FFFFFF !important;
@@ -72,7 +69,6 @@
             color: #FFFFFF !important;
         }
 
-        /* Active filter state */
         .filter-btn.active-pink {
             background-color: #E882A6 !important;
             color: #FFFFFF !important;
@@ -84,7 +80,6 @@
             border-color: #8A70D6 !important;
         }
 
-        /* Live Edit Mode visual highlights */
         .editable-active [contenteditable="true"] {
             outline: 2px dashed #8A70D6 !important;
             outline-offset: 3px;
@@ -97,7 +92,6 @@
             background-color: rgba(248, 200, 220, 0.15);
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -115,7 +109,7 @@
 </head>
 <body id="page-body" class="bg-white text-brand-dark min-h-screen flex flex-col justify-between antialiased selection:bg-pastel-pink-light selection:text-brand-dark">
 
-    <!-- Top Toolbar: Live Edit Mode Toggle & Export Controls -->
+    <!-- Top Toolbar -->
     <div class="bg-brand-dark text-white py-2.5 px-4 text-xs font-medium sticky top-0 z-50 border-b border-gray-800 shadow-md">
         <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center gap-2">
@@ -129,13 +123,11 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <!-- Toggle Live Edit Mode -->
                 <button id="toggle-edit-btn" onclick="toggleLiveEditMode()" class="px-3 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-semibold transition-all flex items-center gap-1.5 border border-gray-700">
                     <i data-lucide="edit-3" class="w-3.5 h-3.5 text-pastel-pink"></i>
                     <span id="edit-btn-text">Enable Live Edit</span>
                 </button>
 
-                <!-- Download Updated Code -->
                 <button onclick="exportUpdatedHTML()" class="px-3 py-1.5 rounded-lg btn-pink font-semibold transition-all flex items-center gap-1.5 shadow-sm">
                     <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
                     <span>Export HTML</span>
@@ -152,15 +144,14 @@
                 <!-- Brand Logo / Avatar -->
                 <a href="#" class="flex items-center gap-3 group">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-pastel-purple to-pastel-pink flex items-center justify-center text-white font-bold text-lg shadow-sm group-hover:scale-105 transition-transform duration-200">
-                        AM
+                        MV
                     </div>
                     <div class="flex flex-col">
                         <span class="font-bold text-lg tracking-tight text-brand-dark group-hover:text-pastel-purple transition-colors" data-editable="true">
                             Medhavi Vyas
                         </span>
                         <span class="text-xs text-gray-500 font-medium tracking-wider uppercase" data-editable="true">
-                            Accounting Intern at Withum, Finance and Accounting
-
+                            Finance & Accounting | Rutgers Business School
                         </span>
                     </div>
                 </a>
@@ -174,13 +165,13 @@
                         Skills & Matrix
                     </a>
                     <a href="#projects-files" class="text-sm font-semibold text-gray-700 hover:text-pastel-purple transition-colors py-2 border-b-2 border-transparent hover:border-pastel-purple">
-                        Projects & Downloads
+                        Experience & Resources
                     </a>
                 </nav>
 
-                <!-- Navigation Action CTA Button -->
+                <!-- Action Button -->
                 <div class="hidden md:flex items-center">
-                    <a href="mailto:alex.morgan@example.com?subject=Portfolio%20Inquiry" 
+                    <a href="mailto:medhavi.vyas@rutgers.edu?subject=Portfolio%20Inquiry" 
                        class="btn-purple font-semibold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
                         <i data-lucide="mail" class="w-4 h-4 text-white"></i>
                         <span data-editable="true">Get in Touch</span>
@@ -196,25 +187,6 @@
 
             </div>
         </div>
-
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-gray-100 bg-white px-4 pt-2 pb-6 space-y-3">
-            <a href="#personal-statement" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-pastel-purple">
-                Personal Statement
-            </a>
-            <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-pastel-pink">
-                Skills & Matrix
-            </a>
-            <a href="#projects-files" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-purple-50 hover:text-pastel-purple">
-                Projects & Downloads
-            </a>
-            <div class="pt-2 border-t border-gray-100">
-                <a href="mailto:alex.morgan@example.com" class="w-full btn-purple font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm text-center flex items-center justify-center gap-2">
-                    <i data-lucide="mail" class="w-4 h-4 text-white"></i>
-                    <span data-editable="true">Get in Touch</span>
-                </a>
-            </div>
-        </div>
     </header>
 
     <!-- Main Content Container -->
@@ -222,625 +194,203 @@
 
         <!-- SECTION 1: PERSONAL STATEMENT -->
         <section id="personal-statement" class="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white via-purple-50/20 to-white">
-            
-            <!-- Soft Pastel Gradient Accents -->
-            <div class="absolute top-10 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 pointer-events-none overflow-hidden opacity-30">
-                <div class="absolute -top-10 -left-10 w-80 h-80 rounded-full bg-pastel-pink-light blur-3xl"></div>
-                <div class="absolute top-20 right-0 w-96 h-96 rounded-full bg-pastel-purple-light blur-3xl"></div>
-            </div>
-
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     
-                    <!-- Narrative / Bio Column -->
+                    <!-- Bio Column -->
                     <div class="lg:col-span-7 space-y-6">
-                        
-                        <!-- Badge Tag -->
                         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-purple text-xs font-semibold tracking-wide uppercase shadow-sm">
                             <i data-lucide="sparkles" class="w-3.5 h-3.5 text-white"></i>
                             <span data-editable="true">Personal Statement & Mission</span>
                         </div>
 
-                        <!-- Main Headline -->
                         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-brand-dark leading-tight" data-editable="true">
-                            Personal Portfolio 
+                            Medhavi Vyas
                         </h1>
 
-                        <!-- Subtitle -->
                         <p class="text-lg md:text-xl font-medium text-pastel-purple-dark leading-relaxed" data-editable="true">
-                            Hi, I'm Medhavi Vyas, a finance and accounting student at Rutgers Business School interested in learning more about corproate finance and accounting in the professional world, with a focus on financial analysis and planning, and audit & assurance.
+                            Junior Finance and Accounting student at Rutgers Business School specializing in financial reporting, ERP implementation, and operational financial analysis.
                         </p>
 
-                        <!-- 3-Paragraph Personal Statement -->
                         <div class="prose prose-gray max-w-none text-gray-600 text-base leading-relaxed space-y-4">
                             <p data-editable="true">
-I am currently a junior and have completed and currently studying a lot of upper level courses including intermediate accounting, income tax, international financial management, corporate finance, advanced corporate finance, investment analysis, etc. Throughout these courses, I have learned a lot of differnt skills that I am excited to take into real lfie scenarios and in a professional setting.                              </p>
+                                As a Finance and Accounting junior at Rutgers Business School, I have built a rigorous quantitative foundation through coursework in Intermediate Accounting, Corporate Finance, Income Tax, International Financial Management, and Investment Analysis. I am passionate about leveraging technical accounting principles and data-driven financial analysis to solve complex business challenges in professional corporate settings.
+                            </p>
                             <p data-editable="true">
-During my sophomore year of college, I interned at Schindler Elevator Corporation as a finance controller intern. During the summer and my fall semester, I worked with the finance team to create a handbook for the new SAP system to ensure centralized documentation. This allowed for creating efficenicy and having consistency for a global ERP system transition. I also helped with monthly and quarter closings to provide all the financial infromation collected to show the townhall and relay information to the CFO.                            </p>
+                                During my sophomore year as a Finance Controller Intern at Schindler Elevator Corporation, I collaborated with executive teams to author a comprehensive training handbook for a global SAP transition, ensuring operational documentation standards. Additionally, I assisted with monthly and quarterly closing cycles, consolidating key financial data for executive presentation and CFO reporting.
+                            </p>
                             <p data-editable="true">
-Later, I joined Withum as an administrtive intern. I worked with large volumes of tax documents to scan and create online binders to initiate a multi step chain of tax verification. I also worked with daily office operations by coordinating document flow, and scanning and mailing documents for employees, including frequent IRS correspondence about clients, helping tax teams stay efficient throughout the day.                     </p>
+                                Continuing my professional development at Withum as an Administrative Intern, I managed large-scale tax documentation workflows, optimized multi-step verification systems, and maintained client IRS correspondence to support seamless tax operations during peak business periods.
+                            </p>
                         </div>
 
-                        <!-- Action Buttons -->
                         <div class="pt-4 flex flex-wrap items-center gap-4">
                             <a href="#projects-files" class="btn-purple font-semibold text-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2">
-                                <span data-editable="true">Explore Projects & Files</span>
+                                <span data-editable="true">Explore Experience</span>
                                 <i data-lucide="arrow-down-right" class="w-4 h-4 text-white"></i>
                             </a>
 
-                            <button onclick="triggerFileDownload('Alex_Morgan_Resume_2026.pdf')" class="btn-pink font-semibold text-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                            <button onclick="alert('Resume download clicked!')" class="btn-pink font-semibold text-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-2">
                                 <i data-lucide="file-text" class="w-4 h-4 text-white"></i>
                                 <span data-editable="true">Download Resume</span>
                             </button>
                         </div>
-
                     </div>
 
-                    <!-- Highlight Stat Cards Column -->
+                    <!-- Stat Cards Column -->
                     <div class="lg:col-span-5 space-y-5">
-                        
-                        <!-- Stat Card 1 -->
                         <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="w-10 h-10 rounded-lg badge-pink flex items-center justify-center shadow-xs">
                                     <i data-lucide="briefcase" class="w-5 h-5 text-white"></i>
                                 </div>
-                                <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Experience
-                                </span>
+                                <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Experience</span>
                             </div>
-                            <h3 class="text-2xl font-extrabold text-brand-dark mb-1" data-editable="true">
-                                6+ Years
-                            </h3>
-                            <p class="text-sm text-gray-600" data-editable="true">
-                                Delivering production-grade web applications and leading design systems.
-                            </p>
+                            <h3 class="text-2xl font-extrabold text-brand-dark mb-1" data-editable="true">Corporate & Public</h3>
+                            <p class="text-sm text-gray-600" data-editable="true">Hands-on internships at Schindler Elevator Corporation and Withum.</p>
                         </div>
 
-                        <!-- Stat Card 2 -->
                         <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="w-10 h-10 rounded-lg badge-purple flex items-center justify-center shadow-xs">
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-white"></i>
+                                    <i data-lucide="graduation-cap" class="w-5 h-5 text-white"></i>
                                 </div>
-                                <span class="badge-purple text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Completed
-                                </span>
+                                <span class="badge-purple text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Academics</span>
                             </div>
-                            <h3 class="text-2xl font-extrabold text-brand-dark mb-1" data-editable="true">
-                                40+ Projects
-                            </h3>
-                            <p class="text-sm text-gray-600" data-editable="true">
-                                Shipped across e-commerce, SaaS dashboards, and consumer products.
-                            </p>
+                            <h3 class="text-2xl font-extrabold text-brand-dark mb-1" data-editable="true">Rutgers Business School</h3>
+                            <p class="text-sm text-gray-600" data-editable="true">Double Major in Finance & Accounting with advanced coursework in Valuation & Tax.</p>
                         </div>
 
-                        <!-- Stat Card 3 -->
                         <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="w-10 h-10 rounded-lg badge-pink flex items-center justify-center shadow-xs">
-                                    <i data-lucide="heart" class="w-5 h-5 text-white"></i>
+                                    <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
                                 </div>
-                                <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Satisfaction
-                                </span>
+                                <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Systems</span>
                             </div>
-                            <h3 class="text-2xl font-extrabold text-brand-dark mb-1" data-editable="true">
-                                99% Rating
-                            </h3>
-                            <p class="text-sm text-gray-600" data-editable="true">
-                                Positive client and stakeholder feedback on usability and speed.
-                            </p>
+                            <h3 class="text-2xl font-extrabold text-brand-dark mb-1" data-editable="true">SAP ERP & Excel</h3>
+                            <p class="text-sm text-gray-600" data-editable="true">Experience in corporate financial closes, document verification systems, and auditing tools.</p>
                         </div>
-
                     </div>
 
                 </div>
-
             </div>
         </section>
 
         <!-- SECTION 2: SKILLS SECTION -->
         <section id="skills" class="py-16 md:py-24 bg-white border-t border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <!-- Section Title Header -->
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-pink text-xs font-semibold tracking-wide uppercase shadow-sm mb-3">
                         <i data-lucide="cpu" class="w-3.5 h-3.5 text-white"></i>
                         <span data-editable="true">Core Competencies</span>
                     </div>
                     <h2 class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl" data-editable="true">
-                        Technical Skills & Design Toolkit
+                        Technical & Financial Skills
                     </h2>
-                    <p class="mt-3 text-base text-gray-600" data-editable="true">
-                        Explore my interactive skills breakdown. Click the category tabs below to filter competencies.
-                    </p>
                 </div>
 
-                <!-- Filter Tabs -->
-                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-                    <button onclick="filterSkills('all', this)" class="filter-btn active-purple px-5 py-2 rounded-full text-sm font-semibold border border-transparent transition-all shadow-xs">
-                        All Skills
-                    </button>
-                    <button onclick="filterSkills('frontend', this)" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-pastel-purple transition-all shadow-xs">
-                        Front-End & Backend
-                    </button>
-                    <button onclick="filterSkills('design', this)" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-pastel-pink transition-all shadow-xs">
-                        UI/UX & Systems
-                    </button>
-                    <button onclick="filterSkills('tools', this)" class="filter-btn px-5 py-2 rounded-full text-sm font-semibold text-gray-700 border border-gray-200 hover:border-pastel-purple transition-all shadow-xs">
-                        Tools & Soft Skills
-                    </button>
-                </div>
-
-                <!-- Skill Badges Grid -->
                 <div id="skills-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                    
-                    <!-- Skill Item 1 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="frontend">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="code" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">JavaScript (ES6+)</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Front-End</span>
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center"><i data-lucide="database" class="w-4 h-4 text-white"></i></div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">SAP ERP System</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Finance Tech</span>
                     </div>
-
-                    <!-- Skill Item 2 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="frontend">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="layers" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">React / Next.js</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Front-End</span>
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center"><i data-lucide="file-spreadsheet" class="w-4 h-4 text-white"></i></div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">Advanced Excel</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Analytics</span>
                     </div>
-
-                    <!-- Skill Item 3 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="frontend">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="file-code-2" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">HTML5 & CSS3</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Front-End</span>
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center"><i data-lucide="pie-chart" class="w-4 h-4 text-white"></i></div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">Financial Analysis</span>
+                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Finance</span>
                     </div>
-
-                    <!-- Skill Item 4 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="frontend">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="database" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Node.js / Express</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Backend</span>
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center"><i data-lucide="file-check" class="w-4 h-4 text-white"></i></div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">Tax Document Verification</span>
+                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">Tax & Audit</span>
                     </div>
-
-                    <!-- Skill Item 5 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
-                            <i data-lucide="figma" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Figma / UI Design</span>
-                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">UI/UX</span>
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center"><i data-lucide="book-open" class="w-4 h-4 text-white"></i></div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">Intermediate Accounting</span>
+                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">Accounting</span>
                     </div>
-
-                    <!-- Skill Item 6 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
-                            <i data-lucide="palette" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Tailwind CSS</span>
-                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">UI/UX</span>
+                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center text-center">
+                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center"><i data-lucide="globe" class="w-4 h-4 text-white"></i></div>
+                        <span class="font-bold text-sm text-brand-dark mb-1">International Financial Mgmt</span>
+                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">Corporate</span>
                     </div>
-
-                    <!-- Skill Item 7 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
-                            <i data-lucide="layout" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Design Systems</span>
-                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">UI/UX</span>
-                    </div>
-
-                    <!-- Skill Item 8 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="design">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-pink flex items-center justify-center">
-                            <i data-lucide="eye" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Accessibility (WCAG)</span>
-                        <span class="badge-pink text-[10px] font-semibold px-2 py-0.5 rounded-full">UI/UX</span>
-                    </div>
-
-                    <!-- Skill Item 9 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="tools">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="git-branch" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Git & GitHub</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Tools</span>
-                    </div>
-
-                    <!-- Skill Item 10 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="tools">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="users" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Agile Team Lead</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Soft Skills</span>
-                    </div>
-
-                    <!-- Skill Item 11 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="tools">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="lightbulb" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Problem Solving</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Soft Skills</span>
-                    </div>
-
-                    <!-- Skill Item 12 -->
-                    <div class="skill-item p-4 rounded-xl bg-gray-50 border border-gray-100 flex flex-col items-center justify-center text-center hover:shadow-md transition-all" data-category="tools">
-                        <div class="w-8 h-8 mb-2 rounded-full badge-purple flex items-center justify-center">
-                            <i data-lucide="zap" class="w-4 h-4 text-white"></i>
-                        </div>
-                        <span class="font-bold text-sm text-brand-dark mb-1" data-editable="true">Performance Audit</span>
-                        <span class="badge-purple text-[10px] font-semibold px-2 py-0.5 rounded-full">Tools</span>
-                    </div>
-
                 </div>
-
             </div>
         </section>
 
-        <!-- SECTION 3: PROJECTS AND FILES SECTION -->
+        <!-- SECTION 3: PROJECTS AND EXPERIENCE -->
         <section id="projects-files" class="py-16 md:py-24 bg-gray-50/50 border-t border-gray-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full badge-purple text-xs font-semibold tracking-wide uppercase shadow-sm mb-3">
                         <i data-lucide="folder-git-2" class="w-3.5 h-3.5 text-white"></i>
-                        <span data-editable="true">Portfolio & Resources</span>
+                        <span data-editable="true">Professional Experience</span>
                     </div>
                     <h2 class="text-3xl font-bold tracking-tight text-brand-dark sm:text-4xl" data-editable="true">
-                        Featured Projects & Case Studies
+                        Internships & Leadership Highlights
                     </h2>
-                    <p class="mt-3 text-base text-gray-600" data-editable="true">
-                        Explore key portfolio work, UI prototypes, and downloadable professional resources.
-                    </p>
                 </div>
 
-                <!-- SUB-SECTION A: PROJECTS GRID -->
-                <div class="mb-20">
-                    <div class="flex items-center justify-between mb-8 pb-3 border-b border-gray-200">
-                        <h3 class="text-xl font-bold text-brand-dark flex items-center gap-2">
-                            <i data-lucide="layout-grid" class="w-5 h-5 text-pastel-purple"></i>
-                            <span data-editable="true">Highlighted Software Projects</span>
-                        </h3>
-                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                            3 Projects Available
-                        </span>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Schindler Card -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                        <span class="badge-purple text-xs font-bold px-3 py-1 rounded-full uppercase">Schindler Elevator Corp</span>
+                        <h3 class="text-2xl font-bold text-brand-dark mt-3 mb-2">Finance Controller Intern</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">Developed a global SAP ERP system documentation handbook to streamline financial operations and assisted controller teams in quarterly executive closings.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        
-                        <!-- Project Card 1 -->
-                        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="relative bg-gray-100 h-48 overflow-hidden group">
-                                <img src="https://placehold.co/600x400/8A70D6/FFFFFF?text=SaaS+Dashboard+UI" alt="SaaS Dashboard UI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <div class="absolute top-3 right-3">
-                                    <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-                                        Web App
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h4 class="text-xl font-bold text-brand-dark mb-2" data-editable="true">
-                                        Nova Analytics Platform
-                                    </h4>
-                                    <p class="text-sm text-gray-600 line-clamp-3" data-editable="true">
-                                        A real-time data analytics dashboard with customizable widget layouts, interactive chart visualizations, and automated CSV export pipelines.
-                                    </p>
-                                </div>
-
-                                <div class="flex flex-wrap gap-1.5 pt-2">
-                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">React</span>
-                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Tailwind CSS</span>
-                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Chart.js</span>
-                                </div>
-
-                                <div class="pt-4 flex items-center justify-between gap-3 border-t border-gray-100">
-                                    <button onclick="openModal('Nova Analytics Platform', 'Web App Case Study', 'Detailed architectural overview of Nova Analytics. Developed custom hooks for high-frequency data polling and reduced initial bundle load times by 35%.', ['React', 'Tailwind', 'ChartJS', 'REST API'], 'https://example.com')" 
-                                            class="btn-purple text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                                        <i data-lucide="info" class="w-3.5 h-3.5 text-white"></i>
-                                        <span>Details</span>
-                                    </button>
-
-                                    <button onclick="showToast('Launching Live Demo Preview...')" class="btn-pink text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-white"></i>
-                                        <span>Live Demo</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 2 -->
-                        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="relative bg-gray-100 h-48 overflow-hidden group">
-                                <img src="https://placehold.co/600x400/E882A6/FFFFFF?text=Design+System+Figma" alt="Design System Preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <div class="absolute top-3 right-3">
-                                    <span class="badge-purple text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-                                        UI/UX
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h4 class="text-xl font-bold text-brand-dark mb-2" data-editable="true">
-                                        Aura Design System
-                                    </h4>
-                                    <p class="text-sm text-gray-600 line-clamp-3" data-editable="true">
-                                        A comprehensive component design kit created in Figma with 50+ accessible UI components, design tokens, and dark mode theme switching rules.
-                                    </p>
-                                </div>
-
-                                <div class="flex flex-wrap gap-1.5 pt-2">
-                                    <span class="badge-pink text-[11px] font-medium px-2.5 py-0.5 rounded-full">Figma</span>
-                                    <span class="badge-pink text-[11px] font-medium px-2.5 py-0.5 rounded-full">UI Tokens</span>
-                                    <span class="badge-pink text-[11px] font-medium px-2.5 py-0.5 rounded-full">WCAG 2.1</span>
-                                </div>
-
-                                <div class="pt-4 flex items-center justify-between gap-3 border-t border-gray-100">
-                                    <button onclick="openModal('Aura Design System', 'UI/UX Design System', 'Complete component library built for enterprise scalability. Includes typography guidelines, contrast matrices, and interactive prototype flows.', ['Figma', 'UI Tokens', 'Design Guidelines'], 'https://example.com')" 
-                                            class="btn-purple text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                                        <i data-lucide="info" class="w-3.5 h-3.5 text-white"></i>
-                                        <span>Details</span>
-                                    </button>
-
-                                    <button onclick="showToast('Opening Figma UI Prototype...')" class="btn-pink text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                                        <i data-lucide="external-link" class="w-3.5 h-3.5 text-white"></i>
-                                        <span>Figma File</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 3 -->
-                        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
-                            <div class="relative bg-gray-100 h-48 overflow-hidden group">
-                                <img src="https://placehold.co/600x400/7459C2/FFFFFF?text=E-Commerce+Store" alt="E-Commerce Storefront" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <div class="absolute top-3 right-3">
-                                    <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-                                        Full-Stack
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h4 class="text-xl font-bold text-brand-dark mb-2" data-editable="true">
-                                        Velox E-Commerce Engine
-                                    </h4>
-                                    <p class="text-sm text-gray-600 line-clamp-3" data-editable="true">
-                                        A fast headless storefront with custom shopping cart state management, checkout integration, and product filtering powered by REST API.
-                                    </p>
-                                </div>
-
-                                <div class="flex flex-wrap gap-1.5 pt-2">
-                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Next.js</span>
-                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Node.js</span>
-                                    <span class="badge-purple text-[11px] font-medium px-2.5 py-0.5 rounded-full">Stripe API</span>
-                                </div>
-
-                                <div class="pt-4 flex items-center justify-between gap-3 border-t border-gray-100">
-                                    <button onclick="openModal('Velox E-Commerce Engine', 'Headless E-Commerce', 'Full headless storefront designed for sub-second page loads. Integrates Stripe payments, inventory webhooks, and responsive cart management.', ['Next.js', 'Node.js', 'Stripe API'], 'https://example.com')" 
-                                            class="btn-purple text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                                        <i data-lucide="info" class="w-3.5 h-3.5 text-white"></i>
-                                        <span>Details</span>
-                                    </button>
-
-                                    <button onclick="showToast('Opening GitHub Repository...')" class="btn-pink text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition-all">
-                                        <i data-lucide="github" class="w-3.5 h-3.5 text-white"></i>
-                                        <span>Code Repo</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
+                    <!-- Withum Card -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                        <span class="badge-pink text-xs font-bold px-3 py-1 rounded-full uppercase">Withum</span>
+                        <h3 class="text-2xl font-bold text-brand-dark mt-3 mb-2">Administrative Intern</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">Facilitated high-volume client tax verification workflows, scanning, and organizing multi-step digital binders alongside key IRS correspondence management.</p>
                     </div>
                 </div>
-
-                <!-- SUB-SECTION B: DOWNLOADABLE FILES AND DOCUMENTS -->
-                <div>
-                    <div class="flex items-center justify-between mb-8 pb-3 border-b border-gray-200">
-                        <h3 class="text-xl font-bold text-brand-dark flex items-center gap-2">
-                            <i data-lucide="file-check" class="w-5 h-5 text-pastel-pink"></i>
-                            <span data-editable="true">Downloadable Resume & Files</span>
-                        </h3>
-                        <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                            3 Files Ready
-                        </span>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        
-                        <!-- File Card 1 -->
-                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-                            <div class="flex items-start gap-4 mb-4">
-                                <div class="w-12 h-12 rounded-xl badge-purple flex items-center justify-center shrink-0">
-                                    <i data-lucide="file-text" class="w-6 h-6 text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-brand-dark text-base" data-editable="true">
-                                        Medhavi Vyas Resume CV
-                                    </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">PDF Document • 1.2 MB</p>
-                                    <p class="text-xs text-gray-600 mt-2" data-editable="true">
-                                        Updated full professional resume outlining key employment history and tech stacks.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
-                                <button onclick="openModal('Medhavi Vyas Resume CV', 'Official Document', 'Preview file contents for Medhavi Vyas Resume PDF. Features work history from 2020-2026.', ['PDF File', 'Curriculum Vitae'], '#')" 
-                                        class="w-1/2 border border-gray-200 text-gray-700 hover:border-pastel-purple hover:text-pastel-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
-                                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                                    <span>Preview</span>
-                                </button>
-                                <button onclick="triggerFileDownload('Alex_Morgan_Resume_2026.pdf')" 
-                                        class="w-1/2 btn-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
-                                    <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
-                                    <span>Download</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- File Card 2 -->
-                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-                            <div class="flex items-start gap-4 mb-4">
-                                <div class="w-12 h-12 rounded-xl badge-pink flex items-center justify-center shrink-0">
-                                    <i data-lucide="presentation" class="w-6 h-6 text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-brand-dark text-base" data-editable="true">
-                                        Brand Style Guide & Tokens
-                                    </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">PDF Guide • 3.8 MB</p>
-                                    <p class="text-xs text-gray-600 mt-2" data-editable="true">
-                                        Complete brand design rules, pastel palette hex values, and typography scale rules.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
-                                <button onclick="openModal('Brand Style Guide & Tokens', 'Design Resource', 'Includes hex codes (#E882A6, #8A70D6), spacing grids, and component contrast ratios.', ['Brand Guide', 'PDF'], '#')" 
-                                        class="w-1/2 border border-gray-200 text-gray-700 hover:border-pastel-pink hover:text-pastel-pink text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
-                                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                                    <span>Preview</span>
-                                </button>
-                                <button onclick="triggerFileDownload('Brand_Style_Guide_2026.pdf')" 
-                                        class="w-1/2 btn-pink text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
-                                    <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
-                                    <span>Download</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- File Card 3 -->
-                        <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-                            <div class="flex items-start gap-4 mb-4">
-                                <div class="w-12 h-12 rounded-xl badge-purple flex items-center justify-center shrink-0">
-                                    <i data-lucide="archive" class="w-6 h-6 text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-brand-dark text-base" data-editable="true">
-                                        FullStack Starter Zip
-                                    </h4>
-                                    <p class="text-xs text-gray-500 mt-0.5">ZIP Archive • 8.4 MB</p>
-                                    <p class="text-xs text-gray-600 mt-2" data-editable="true">
-                                        Boilerplate code zip containing React components and Tailwind styling utilities.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-2 pt-2 border-t border-gray-50">
-                                <button onclick="openModal('FullStack Starter Zip', 'Code Archive', 'Contains React components, Tailwind setup files, and sample API configuration scripts.', ['ZIP Archive', 'Source Code'], '#')" 
-                                        class="w-1/2 border border-gray-200 text-gray-700 hover:border-pastel-purple hover:text-pastel-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
-                                    <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                                    <span>Preview</span>
-                                </button>
-                                <button onclick="triggerFileDownload('FullStack_Starter_Template.zip')" 
-                                        class="w-1/2 btn-purple text-xs font-semibold py-2 rounded-lg transition-colors flex items-center justify-center gap-1">
-                                    <i data-lucide="download" class="w-3.5 h-3.5 text-white"></i>
-                                    <span>Download</span>
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
         </section>
 
     </main>
 
-    <!-- Interactive Modal Popup Container -->
-    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity duration-300">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-gray-100 transform transition-transform duration-300 scale-95 opacity-0" id="modal-card">
-            
-            <div class="flex items-center justify-between pb-4 border-b border-gray-100">
-                <div>
-                    <span id="modal-category" class="badge-purple text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full">
-                        Category
-                    </span>
-                    <h3 id="modal-title" class="text-xl font-bold text-brand-dark mt-1">
-                        Modal Title
-                    </h3>
-                </div>
-                <button onclick="closeModal()" class="p-1 rounded-lg text-gray-400 hover:text-brand-dark hover:bg-gray-100 transition-colors">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
-            </div>
-
-            <div class="py-4 space-y-4">
-                <p id="modal-description" class="text-sm text-gray-600 leading-relaxed">
-                    Detailed description text...
-                </p>
-
-                <div>
-                    <h5 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Key Tech & Metadata:</h5>
-                    <div id="modal-tags" class="flex flex-wrap gap-1.5">
-                        <!-- Dynamic Tags Inserted Here -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-3">
-                <button onclick="closeModal()" class="px-4 py-2 rounded-lg border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-colors">
-                    Close
-                </button>
-                <button onclick="showToast('Resource confirmed from modal view!'); closeModal();" class="btn-purple px-5 py-2 rounded-lg text-sm font-semibold transition-all">
-                    Acknowledge
-                </button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 pt-12 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-100">
-                
-                <div class="md:col-span-2 space-y-3">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 rounded-lg badge-purple flex items-center justify-center font-bold text-sm">
-                            AM
-                        </div>
-                        <span class="font-bold text-lg text-brand-dark" data-editable="true">Medhavi Vyas</span>
-                    </div>
-                    <p class="text-xs text-gray-500 max-w-sm leading-relaxed" data-editable="true">
-                         Finance and accounting student at Rutgers University NB; interested in working towards my CPA and working in corproate finance and auditing.
-                    </p>
-                </div>
+    <footer class="bg-brand-dark text-white py-8 border-t border-gray-800 text-center text-xs text-gray-400">
+        <p>© 2026 Medhavi Vyas | Rutgers Business School. All Rights Reserved.</p>
+    </footer>
 
-                <div>
-                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-dark mb-3">Quick Links</h5>
-                    <ul class="space-y-2 text-xs text-gray-600">
-                        <li><a href="#personal-statement" class="hover:text-pastel-purple transition-colors">Personal Statement</a></li>
-                        <li><a href="#skills" class="hover:text-pastel-pink transition-colors">Skills & Matrix</a></li>
-                        <li><a href="#projects-files" class="hover:text-pastel-purple transition-colors">Projects & Downloads</a></li>
-                    </ul>
-                </div>
+    <script>
+        lucide.createIcons();
 
-                <div>
-                    <h5 class="text-xs font-bold uppercase tracking-wider text-brand-dark mb-3">Social Connections</h5>
-                    <div class="flex items-center gap-3">
-                        <a href="javascript:void(0)" onclick="showToast('LinkedIn profile link clicked!')" class="w-8 h-8 rounded
+        function toggleLiveEditMode() {
+            const body = document.getElementById('page-body');
+            const btnText = document.getElementById('edit-btn-text');
+            const editables = document.querySelectorAll('[data-editable="true"]');
+
+            body.classList.toggle('editable-active');
+            const isActive = body.classList.contains('editable-active');
+
+            editables.forEach(el => {
+                el.contentEditable = isActive ? "true" : "false";
+            });
+
+            btnText.innerText = isActive ? "Disable Live Edit" : "Enable Live Edit";
+        }
+
+        function exportUpdatedHTML() {
+            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Medhavi_Vyas_Portfolio.html';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
